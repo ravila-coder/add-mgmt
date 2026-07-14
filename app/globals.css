@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-night font-light text-offwhite antialiased;
+    font-feature-settings: "ss01" on;
+  }
+
+  ::selection {
+    background: rgba(176, 235, 194, 0.25);
+    color: #f7f7f7;
+  }
+
+  :focus-visible {
+    outline: 2px solid #1a6f5f;
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  /* Faint background grid — 64px module echoing the símbolo's square DNA */
+  .bg-grid {
+    background-image: linear-gradient(
+        rgba(247, 247, 247, 0.025) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(247, 247, 247, 0.025) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .hairline {
+    border-color: rgba(247, 247, 247, 0.08);
+  }
+
+  .glass {
+    background: rgba(10, 14, 13, 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
